@@ -23,6 +23,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.MediumTopAppBar
+import androidx.compose.material3.NavigationDrawerItem
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -41,6 +42,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.by_jetpack.Navigation.MainScreen
 import com.example.by_jetpack.ui.theme.By_jetpackTheme
 
 class MainActivity : ComponentActivity() {
@@ -49,11 +51,17 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             By_jetpackTheme {
-                LearnBox()
+                // NavigationDrawerTutorial() // Basic step-by-step tutorial
+                // NavigationDrawerExample() // Complete feature-rich example
+//                LearnButtonBar() // Interactive learning with different drawer types
+                MainScreen()
             }
         }
     }
 }
+
+
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ScaffoldExample() {
