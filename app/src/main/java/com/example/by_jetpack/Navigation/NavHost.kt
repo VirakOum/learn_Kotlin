@@ -24,7 +24,9 @@ fun AppNavHost(
         }
 
         composable(ScreenRoutes.Profile.route) {
-            ProfileScreen()
+            backStackEntry ->
+            val userId = backStackEntry.arguments?.getString("userId")
+            ProfileScreen(userId)
         }
     }
 }

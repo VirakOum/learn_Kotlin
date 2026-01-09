@@ -22,8 +22,8 @@ fun SearchScreen() {
 }
 
 @Composable
-fun ProfileScreen() {
+fun ProfileScreen(userId: String?) {
     Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-        Text("Profile Screen")
+        Text("Profile Screen with parameter: $userId")
     }
 }

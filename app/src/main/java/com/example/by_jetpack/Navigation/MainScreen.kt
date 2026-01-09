@@ -15,6 +15,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.BlendMode.Companion.Screen
+import androidx.core.net.toUri
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 
@@ -36,11 +37,19 @@ fun MainScreen() {
                 val currentRoute =
                     navController.currentBackStackEntryAsState().value?.destination?.route
 
-                items.forEach { screen ->
+                items.forEachIndexed { index,screen ->
                     NavigationBarItem(
                         selected = currentRoute == screen.route,
                         onClick = {
+                            println("Navigating to ${items.elementAt(index).route}");
+                            println("Current route is ${screen.route}");
+                            if (screen.route.toString()==items.elementAt(index).route.toString()){
+                                println("Already on the ${screen.route} screen");
+                                navController.navigate(
+                                    ScreenRoutes.Profile.createRoute("5")
+                                )                            }
                             navController.navigate(screen.route) {
+
                                 popUpTo(navController.graph.startDestinationId) {
                                     saveState = true
                                 }
